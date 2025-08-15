@@ -24,7 +24,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
           <body
             className={cn(
-              'min-h-svh overscroll-none font-sans antialiased',
+              'min-h-svh overscroll-none bg-neutral-100 font-sans antialiased',
               fontSans.variable,
               fontMono.variable,
             )}
