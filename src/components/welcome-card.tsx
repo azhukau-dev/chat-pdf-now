@@ -1,4 +1,4 @@
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, Bot } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -15,8 +15,8 @@ export default function WelcomeCard() {
   return (
     <Card className="absolute top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 border-0 bg-white/80 text-center shadow-lg backdrop-blur-sm">
       <CardHeader className="space-y-4">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600">
-          <FileText className="h-8 w-8 text-white" />
+        <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-emerald-600">
+          <Bot className="size-8 text-white" />
         </div>
         <CardTitle className="text-4xl leading-tight font-black tracking-tight text-emerald-700">
           Chat PDF Now
@@ -51,7 +51,7 @@ export default function WelcomeCard() {
           className="w-full bg-emerald-600 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-emerald-700 hover:shadow-xl"
         >
           <Link href="/documents" prefetch={false}>
-            Get Started <ArrowRight className="ml-1 h-4 w-4" />
+            Get Started <ArrowRight className="ml-1" />
           </Link>
         </Button>
       </CardFooter>
