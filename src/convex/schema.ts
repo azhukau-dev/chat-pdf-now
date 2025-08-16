@@ -10,5 +10,5 @@ export default defineSchema({
     name: v.string(),
     userId: v.id('users'),
     storageId: v.id('_storage'),
-  }),
+  }).index('by_user_id', ['userId']),
 });

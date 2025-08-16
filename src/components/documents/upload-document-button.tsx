@@ -2,12 +2,12 @@
 
 import { Loader2, Upload } from 'lucide-react';
 
-import useUploadDocument from '@/hooks/use-upload-document';
+import useDocumentUpload from '@/hooks/use-document-upload';
 
 import { Button } from '../ui/button';
 
 export default function UploadDocumentButton() {
-  const { upload, isUploading } = useUploadDocument();
+  const { upload, isUploading } = useDocumentUpload();
 
   function handleUpload() {
     const fileInput = document.createElement('input');

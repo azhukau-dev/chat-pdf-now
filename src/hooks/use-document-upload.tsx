@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 
 import { api } from '@/convex/_generated/api';
 
-export default function useUploadDocument() {
+export default function useDocumentUpload() {
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

@@ -7,8 +7,7 @@ import { authQuery, getCurrentUser } from './util';
 export const current = authQuery({
   args: {},
   handler: async (ctx) => {
-    const { user } = await ctx;
-    return user;
+    return ctx.user;
   },
 });
 
@@ -17,7 +16,7 @@ export const getByExternalId = internalQuery({
     externalId: v.string(),
   },
   handler: async (ctx, { externalId }) => {
-    return await ctx.db
+    return ctx.db
       .query('users')
       .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
       .unique();
