@@ -1,12 +1,26 @@
 import { UserJSON } from '@clerk/backend';
 import { Validator, v } from 'convex/values';
 
-import { QueryCtx, internalMutation, query } from './_generated/server';
+import { internalMutation, internalQuery } from './_generated/server';
+import { authQuery, getCurrentUser } from './util';
 
-export const current = query({
+export const current = authQuery({
   args: {},
   handler: async (ctx) => {
-    return await getCurrentUser(ctx);
+    const { user } = await ctx;
+    return user;
+  },
+});
+
+export const getByExternalId = internalQuery({
+  args: {
+    externalId: v.string(),
+  },
+  handler: async (ctx, { externalId }) => {
+    return await ctx.db
+      .query('users')
+      .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
+      .unique();
   },
 });
 
@@ -20,7 +34,7 @@ export const upsertFromClerk = internalMutation({
       externalId: data.id,
     };
 
-    const user = await userByExternalId(ctx, data.id);
+    const user = await getCurrentUser(ctx);
     if (user === null) {
       await ctx.db.insert('users', userAttributes);
     } else {
@@ -34,7 +48,7 @@ export const deleteFromClerk = internalMutation({
     clerkUserId: v.string(),
   },
   handler: async (ctx, { clerkUserId }) => {
-    const user = await userByExternalId(ctx, clerkUserId);
+    const user = await getCurrentUser(ctx);
 
     if (user !== null) {
       await ctx.db.delete(user._id);
@@ -45,26 +59,3 @@ export const deleteFromClerk = internalMutation({
     }
   },
 });
-
-export async function getCurrentUserOrThrow(ctx: QueryCtx) {
-  const userRecord = await getCurrentUser(ctx);
-  if (!userRecord) {
-    throw new Error('Cannot get current user');
-  }
-  return userRecord;
-}
-
-export async function getCurrentUser(ctx: QueryCtx) {
-  const identity = await ctx.auth.getUserIdentity();
-  if (identity === null) {
-    return null;
-  }
-  return await userByExternalId(ctx, identity.subject);
-}
-
-async function userByExternalId(ctx: QueryCtx, externalId: string) {
-  return await ctx.db
-    .query('users')
-    .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
-    .unique();
-}

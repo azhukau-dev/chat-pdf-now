@@ -1,29 +1,20 @@
-import { ConvexError, v } from 'convex/values';
+import { v } from 'convex/values';
 
-import { mutation } from './_generated/server';
-import { getCurrentUserOrThrow } from './users';
+import { authMutation } from './util';
 
-export const generateUploadUrl = mutation({
+export const generateUploadUrl = authMutation({
   handler: async (ctx) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (identity === null) {
-      throw new ConvexError('Not authenticated');
-    }
     return await ctx.storage.generateUploadUrl();
   },
 });
 
-export const sendDocument = mutation({
+export const sendDocument = authMutation({
   args: {
     storageId: v.id('_storage'),
     name: v.string(),
   },
   handler: async (ctx, { name, storageId }) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (identity === null) {
-      throw new ConvexError('Not authenticated');
-    }
-    const user = await getCurrentUserOrThrow(ctx);
+    const { user } = await ctx;
     await ctx.db.insert('documents', { name, storageId, userId: user._id });
   },
 });
