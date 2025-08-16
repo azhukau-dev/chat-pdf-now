@@ -16,7 +16,7 @@ export default function WelcomeCard() {
     <Card className="absolute top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 border-0 bg-white/80 text-center shadow-lg backdrop-blur-sm">
       <CardHeader className="space-y-4">
         <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-emerald-600">
-          <Bot className="size-8 text-white" />
+          <Bot className="text-primary-foreground size-8" />
         </div>
         <CardTitle className="text-4xl leading-tight font-black tracking-tight text-emerald-700">
           Chat PDF Now
@@ -48,7 +48,7 @@ export default function WelcomeCard() {
         <Button
           asChild
           size="lg"
-          className="w-full bg-emerald-600 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-emerald-700 hover:shadow-xl"
+          className="text-primary-foreground w-full bg-emerald-600 font-semibold shadow-lg transition-all duration-200 hover:bg-emerald-700 hover:shadow-xl"
         >
           <Link href="/documents" prefetch={false}>
             Get Started <ArrowRight className="ml-1" />
