@@ -8,6 +8,7 @@ export default defineSchema({
   }).index('by_external_id', ['externalId']),
   documents: defineTable({
     name: v.string(),
-    user: v.id('users'),
+    userId: v.id('users'),
+    storageId: v.id('_storage'),
   }),
 });

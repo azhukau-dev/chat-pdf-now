@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
+import { Toaster } from 'sonner';
 
 import { fontMono, fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
@@ -36,6 +37,7 @@ export default function RootLayout({
               disableTransitionOnChange
               enableColorScheme
             >
+              <Toaster position="top-right" richColors />
               <main>{children}</main>
             </ThemeProvider>
           </body>

@@ -1,8 +1,6 @@
-'use client';
+import { FileText } from 'lucide-react';
 
-import { FileText, Upload } from 'lucide-react';
-
-import { Button } from '../ui/button';
+import UploadDocumentButton from './upload-document-button';
 
 export default function NoDocumentsFound() {
   return (
@@ -15,13 +13,7 @@ export default function NoDocumentsFound() {
         </p>
       </div>
       <div className="mx-auto">
-        <Button
-          size="lg"
-          className="text-primary-foreground w-40 bg-emerald-600 hover:bg-emerald-700"
-        >
-          <Upload />
-          Upload
-        </Button>
+        <UploadDocumentButton />
       </div>
     </div>
   );
