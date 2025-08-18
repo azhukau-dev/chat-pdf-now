@@ -25,7 +25,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
           <body
             className={cn(
-              'font-sans antialiased',
+              'overflow-hidden bg-stone-100 font-sans antialiased',
               fontSans.variable,
               fontMono.variable,
             )}
@@ -38,7 +38,7 @@ export default function RootLayout({
               enableColorScheme
             >
               <Toaster position="top-right" richColors />
-              <main className="min-h-svh bg-stone-100">{children}</main>
+              <main className="flex h-svh flex-col">{children}</main>
             </ThemeProvider>
           </body>
         </html>

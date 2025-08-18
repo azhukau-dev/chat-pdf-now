@@ -13,7 +13,7 @@ export default async function DocumentsPage() {
   );
 
   return (
-    <div className="mx-auto max-w-5xl p-4">
+    <div className="mx-auto w-full max-w-5xl p-4">
       <DocumentListView preloadedDocuments={preloadedDocuments} />
     </div>
   );

@@ -16,7 +16,7 @@ export default function DocumentsLayout({
 }) {
   return (
     <>
-      <header className="shadom-sm fixed top-0 z-10 flex w-full items-center border-b bg-white p-4">
+      <header className="shadom-sm flex flex-shrink-0 items-center border-b bg-white p-4">
         <div className="flex items-center">
           <Link href="/">
             <Bot className="size-8 transition-colors duration-200 hover:text-emerald-600" />
@@ -37,7 +37,7 @@ export default function DocumentsLayout({
         </div>
       </header>
 
-      <div className="pt-20">{children}</div>
+      <div className="flex flex-1 flex-col overflow-y-auto">{children}</div>
     </>
   );
 }
