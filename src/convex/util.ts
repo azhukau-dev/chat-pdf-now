@@ -64,8 +64,11 @@ export async function getCurrentUser(ctx: QueryCtx | MutationCtx) {
   return userByExternalId(ctx, identity.subject);
 }
 
-function userByExternalId(ctx: QueryCtx | MutationCtx, externalId: string) {
-  return ctx.db
+async function userByExternalId(
+  ctx: QueryCtx | MutationCtx,
+  externalId: string,
+) {
+  return await ctx.db
     .query('users')
     .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
     .unique();

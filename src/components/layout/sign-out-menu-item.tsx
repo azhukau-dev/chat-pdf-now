@@ -2,7 +2,7 @@
 
 import { useClerk } from '@clerk/nextjs';
 
-import { DropdownMenuItem } from './ui/dropdown-menu';
+import { DropdownMenuItem } from '../ui/dropdown-menu';
 
 export default function SignOutMenuItem() {
   const { signOut } = useClerk();

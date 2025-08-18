@@ -6,7 +6,7 @@ import useDocumentUpload from '@/hooks/use-document-upload';
 
 import { Button } from '../ui/button';
 
-export default function UploadDocumentButton() {
+export default function DocumentUploadButton() {
   const { upload, isUploading } = useDocumentUpload();
 
   function handleUpload() {
@@ -24,7 +24,6 @@ export default function UploadDocumentButton() {
 
   return (
     <Button
-      size="lg"
       className="text-primary-foreground w-40 bg-emerald-600 hover:bg-emerald-700"
       onClick={handleUpload}
       disabled={isUploading}

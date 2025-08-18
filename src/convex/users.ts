@@ -16,7 +16,7 @@ export const getByExternalId = internalQuery({
     externalId: v.string(),
   },
   handler: async (ctx, { externalId }) => {
-    return ctx.db
+    return await ctx.db
       .query('users')
       .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
       .unique();

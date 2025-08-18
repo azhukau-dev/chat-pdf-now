@@ -23,7 +23,11 @@ export default function useDocumentUpload() {
         body: file,
       });
       const { storageId } = await result.json();
-      await sendDocument({ name: file.name, storageId });
+      await sendDocument({
+        name: file.name,
+        storageId,
+        size: file.size,
+      });
       toast.success('Document uploaded successfully');
     } catch (error) {
       setError('Failed to upload document');

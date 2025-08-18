@@ -1,12 +1,20 @@
-import NoDocumentsFound from '@/components/documents/no-documents-found';
+import { preloadQuery } from 'convex/nextjs';
 
-export default function DocumentsPage() {
+import DocumentListView from '@/components/documents/document-list-view';
+import { api } from '@/convex/_generated/api';
+import { getAuthToken } from '@/lib/auth';
+
+export default async function DocumentsPage() {
+  const token = await getAuthToken();
+  const preloadedDocuments = await preloadQuery(
+    api.documents.getDocuments,
+    {},
+    { token },
+  );
+
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col space-y-4 p-4">
-      <h2 className="text-3xl font-semibold">Chat Documents</h2>
-      <div className="flex flex-1 flex-col items-center justify-center">
-        <NoDocumentsFound />
-      </div>
+    <div className="mx-auto max-w-5xl p-4">
+      <DocumentListView preloadedDocuments={preloadedDocuments} />
     </div>
   );
 }

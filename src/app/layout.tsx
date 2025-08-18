@@ -25,7 +25,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
           <body
             className={cn(
-              'min-h-svh overscroll-none bg-stone-100 font-sans antialiased',
+              'font-sans antialiased',
               fontSans.variable,
               fontMono.variable,
             )}
@@ -38,7 +38,7 @@ export default function RootLayout({
               enableColorScheme
             >
               <Toaster position="top-right" richColors />
-              <main>{children}</main>
+              <main className="min-h-svh bg-stone-100">{children}</main>
             </ThemeProvider>
           </body>
         </html>

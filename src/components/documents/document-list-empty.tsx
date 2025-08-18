@@ -1,10 +1,10 @@
 import { FileText } from 'lucide-react';
 
-import UploadDocumentButton from './upload-document-button';
+import DocumentUploadButton from './document-upload-button';
 
-export default function NoDocumentsFound() {
+export default function DocumentListEmpty() {
   return (
-    <div className="flex flex-col space-y-8">
+    <div className="flex flex-col items-center justify-center space-y-8 py-16">
       <div className="flex flex-col items-center justify-center space-y-2">
         <FileText className="size-10" />
         <h3 className="font-semibold text-gray-900">No documents</h3>
@@ -13,7 +13,7 @@ export default function NoDocumentsFound() {
         </p>
       </div>
       <div className="mx-auto">
-        <UploadDocumentButton />
+        <DocumentUploadButton />
       </div>
     </div>
   );
