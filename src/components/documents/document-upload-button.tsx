@@ -1,6 +1,7 @@
 'use client';
 
 import { Loader2, Upload } from 'lucide-react';
+import { useCallback } from 'react';
 
 import useDocumentUpload from '@/hooks/use-document-upload';
 
@@ -9,7 +10,7 @@ import { Button } from '../ui/button';
 export default function DocumentUploadButton() {
   const { upload, isUploading } = useDocumentUpload();
 
-  function handleUpload() {
+  const handleUpload = useCallback(function handleUpload() {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = '.pdf';
@@ -20,7 +21,7 @@ export default function DocumentUploadButton() {
       }
     };
     fileInput.click();
-  }
+  }, []);
 
   return (
     <Button

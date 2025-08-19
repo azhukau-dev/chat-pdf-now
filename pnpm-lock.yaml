@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@clerk/backend':
-        specifier: 2.9.2
-        version: 2.9.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 2.9.3
+        version: 2.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@clerk/nextjs':
-        specifier: 6.31.2
-        version: 6.31.2(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 6.31.3
+        version: 6.31.3(next@15.4.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@radix-ui/react-alert-dialog':
         specifier: 1.1.15
         version: 1.1.15(@types/react-dom@19.1.7(@types/react@19.1.10))(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -31,10 +31,10 @@ importers:
         version: 2.1.1
       convex:
         specifier: 1.25.4
-        version: 1.25.4(@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+        version: 1.25.4(@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
       convex-helpers:
         specifier: 0.1.104
-        version: 0.1.104(convex@1.25.4(@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
+        version: 0.1.104(convex@1.25.4(@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -42,8 +42,8 @@ importers:
         specifier: 0.540.0
         version: 0.540.0(react@19.1.1)
       next:
-        specifier: 15.4.6
-        version: 15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 15.4.7
+        version: 15.4.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       next-themes:
         specifier: 0.4.6
         version: 0.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -53,6 +53,9 @@ importers:
       react-dom:
         specifier: 19.1.1
         version: 19.1.1(react@19.1.1)
+      react-pdf:
+        specifier: 10.1.0
+        version: 10.1.0(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-resizable-panels:
         specifier: 3.0.4
         version: 3.0.4(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -65,6 +68,9 @@ importers:
       tailwind-merge:
         specifier: 3.3.1
         version: 3.3.1
+      usehooks-ts:
+        specifier: 3.1.1
+        version: 3.1.1(react@19.1.1)
     devDependencies:
       '@eslint/eslintrc':
         specifier: 3.3.1
@@ -88,8 +94,8 @@ importers:
         specifier: 9.33.0
         version: 9.33.0(jiti@2.5.1)
       eslint-config-next:
-        specifier: 15.4.6
-        version: 15.4.6(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
+        specifier: 15.4.7
+        version: 15.4.7(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -149,27 +155,27 @@ packages:
     resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
 
-  '@clerk/backend@2.9.2':
-    resolution: {integrity: sha512-YMBdO+ZnrWoG84U+HJa6ntEGhglhlQ99yXTUT9dEucw0nGsHAzuhNvEM3qHaEnTvwvFD33XNZZ2JJou6OdAy9w==}
+  '@clerk/backend@2.9.3':
+    resolution: {integrity: sha512-cHGnG/Xdr/FOkQOq2JgUzMWG8jTgBEGMBMvM3fVR5EC5lHCrR4xh7zMmAh5ILfBA6JFJAKxrdho6rSjaJS/9FA==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/clerk-react@5.42.2':
-    resolution: {integrity: sha512-884xLv++XuJ9LsvaMxs2xAIkk+gLAwfEs/5Tb22HXKaQ8IgSqhBgBwXs+mdiSD6XPZhEn2RGPl1MjsqHzzP6/A==}
+  '@clerk/clerk-react@5.43.0':
+    resolution: {integrity: sha512-2U/PiNaz51mcGfZN9NcP8KfsFdD2DrZ7kt/98ijqjIi0Jl39FP+75q3gR9nX82Qg+JwveB3Tnkb3CvqobJNi1A==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-0
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-0
 
-  '@clerk/nextjs@6.31.2':
-    resolution: {integrity: sha512-IH1FAM3FlscZ8CdUy/zLE9uXbyVldikPA+uuZgodsMVcvN2mRNYRNa1tdx2tBWgWl9DCTVeRQBcExHxWrZdK7A==}
+  '@clerk/nextjs@6.31.3':
+    resolution: {integrity: sha512-PQ4Nk7mbKAJ111sTqpBHQZAQ1vZDb/8UprHLDoQPl14GxN9iXK/5wDJl7e8uKOk1zwH+WpYD9CLgIkTTSm5fOQ==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       next: ^13.5.7 || ^14.2.25 || ^15.2.3
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-0
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-0
 
-  '@clerk/shared@3.21.1':
-    resolution: {integrity: sha512-E1MtGcId7NSMQFfUkzNOuI0Sdy9IJSYd8wvLsanPMia1KzkTdaxAv3EABFVT+RevydWp8BnFEFXQm0/Kqu/LDQ==}
+  '@clerk/shared@3.21.2':
+    resolution: {integrity: sha512-aA6t4Y6/kH1ZVMPIN0NeRulIGYDwB3otfql4Y+5MbnEgegdOlv43WO5iAheytR0fHBXnOt5+VN5QjPQHu2kU4A==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-0
@@ -180,8 +186,8 @@ packages:
       react-dom:
         optional: true
 
-  '@clerk/types@4.79.0':
-    resolution: {integrity: sha512-AqonG6n1PZC3z+VJ+jLynNVS5XDlktJSTpsI4YMgSurZfq+1E8uUNC+GdUq9sPJxgjv/hGUPVLdi49imGHYaVg==}
+  '@clerk/types@4.80.0':
+    resolution: {integrity: sha512-WuvCNfxWY9hW+p/YR+cCx+Alg8ZHfmYir89pF67YG/wMv89ZKnJBWAgG4DM7oHpyNICcR1vxt1pXq6hRgtM4Nw==}
     engines: {node: '>=18.17.0'}
 
   '@emnapi/core@1.4.5':
@@ -576,59 +582,123 @@ packages:
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
 
+  '@napi-rs/canvas-android-arm64@0.1.77':
+    resolution: {integrity: sha512-jC8YX0rbAnu9YrLK1A52KM2HX9EDjrJSCLVuBf9Dsov4IC6GgwMLS2pwL9GFLJnSZBFgdwnA84efBehHT9eshA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [android]
+
+  '@napi-rs/canvas-darwin-arm64@0.1.77':
+    resolution: {integrity: sha512-VFaCaCgAV0+hPwXajDIiHaaGx4fVCuUVYp/CxCGXmTGz699ngIEBx3Sa2oDp0uk3X+6RCRLueb7vD44BKBiPIg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@napi-rs/canvas-darwin-x64@0.1.77':
+    resolution: {integrity: sha512-uD2NSkf6I4S3o0POJDwweK85FE4rfLNA2N714MgiEEMMw5AmupfSJGgpYzcyEXtPzdaca6rBfKcqNvzR1+EyLQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.77':
+    resolution: {integrity: sha512-03GxMMZGhHRQxiA4gyoKT6iQSz8xnA6T9PAfg/WNJnbkVMFZG782DwUJUb39QIZ1uE1euMCPnDgWAJ092MmgJQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm]
+    os: [linux]
+
+  '@napi-rs/canvas-linux-arm64-gnu@0.1.77':
+    resolution: {integrity: sha512-ZO+d2gRU9JU1Bb7SgJcJ1k9wtRMCpSWjJAJ+2phhu0Lw5As8jYXXXmLKmMTGs1bOya2dBMYDLzwp7KS/S/+aCA==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@napi-rs/canvas-linux-arm64-musl@0.1.77':
+    resolution: {integrity: sha512-S1KtnP1+nWs2RApzNkdNf8X4trTLrHaY7FivV61ZRaL8NvuGOkSkKa+gWN2iedIGFEDz6gecpl/JAUSewwFXYg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@napi-rs/canvas-linux-riscv64-gnu@0.1.77':
+    resolution: {integrity: sha512-A4YIKFYUwDtrSzCtdCAO5DYmRqlhCVKHdpq0+dBGPnIEhOQDFkPBTfoTAjO3pjlEnorlfKmNMOH21sKQg2esGA==}
+    engines: {node: '>= 10'}
+    cpu: [riscv64]
+    os: [linux]
+
+  '@napi-rs/canvas-linux-x64-gnu@0.1.77':
+    resolution: {integrity: sha512-Lt6Sef5l0+5O1cSZ8ysO0JI+x+rSrqZyXs5f7+kVkCAOVq8X5WTcDVbvWvEs2aRhrWTp5y25Jf2Bn+3IcNHOuQ==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@napi-rs/canvas-linux-x64-musl@0.1.77':
+    resolution: {integrity: sha512-NiNFvC+D+omVeJ3IjYlIbyt/igONSABVe9z0ZZph29epHgZYu4eHwV9osfpRt1BGGOAM8LkFrHk4LBdn2EDymA==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@napi-rs/canvas-win32-x64-msvc@0.1.77':
+    resolution: {integrity: sha512-fP6l0hZiWykyjvpZTS3sI46iib8QEflbPakNoUijtwyxRuOPTTBfzAWZUz5z2vKpJJ/8r305wnZeZ8lhsBHY5A==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@napi-rs/canvas@0.1.77':
+    resolution: {integrity: sha512-N9w2DkEKE1AXGp3q55GBOP6BEoFrqChDiFqJtKViTpQCWNOSVuMz7LkoGehbnpxtidppbsC36P0kCZNqJKs29w==}
+    engines: {node: '>= 10'}
+
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@next/env@15.4.6':
-    resolution: {integrity: sha512-yHDKVTcHrZy/8TWhj0B23ylKv5ypocuCwey9ZqPyv4rPdUdRzpGCkSi03t04KBPyU96kxVtUqx6O3nE1kpxASQ==}
+  '@next/env@15.4.7':
+    resolution: {integrity: sha512-PrBIpO8oljZGTOe9HH0miix1w5MUiGJ/q83Jge03mHEE0E3pyqzAy2+l5G6aJDbXoobmxPJTVhbCuwlLtjSHwg==}
 
-  '@next/eslint-plugin-next@15.4.6':
-    resolution: {integrity: sha512-2NOu3ln+BTcpnbIDuxx6MNq+pRrCyey4WSXGaJIyt0D2TYicHeO9QrUENNjcf673n3B1s7hsiV5xBYRCK1Q8kA==}
+  '@next/eslint-plugin-next@15.4.7':
+    resolution: {integrity: sha512-asj3RRiEruRLVr+k2ZC4hll9/XBzegMpFMr8IIRpNUYypG86m/a76339X2WETl1C53A512w2INOc2KZV769KPA==}
 
-  '@next/swc-darwin-arm64@15.4.6':
-    resolution: {integrity: sha512-667R0RTP4DwxzmrqTs4Lr5dcEda9OxuZsVFsjVtxVMVhzSpo6nLclXejJVfQo2/g7/Z9qF3ETDmN3h65mTjpTQ==}
+  '@next/swc-darwin-arm64@15.4.7':
+    resolution: {integrity: sha512-2Dkb+VUTp9kHHkSqtws4fDl2Oxms29HcZBwFIda1X7Ztudzy7M6XF9HDS2dq85TmdN47VpuhjE+i6wgnIboVzQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.4.6':
-    resolution: {integrity: sha512-KMSFoistFkaiQYVQQnaU9MPWtp/3m0kn2Xed1Ces5ll+ag1+rlac20sxG+MqhH2qYWX1O2GFOATQXEyxKiIscg==}
+  '@next/swc-darwin-x64@15.4.7':
+    resolution: {integrity: sha512-qaMnEozKdWezlmh1OGDVFueFv2z9lWTcLvt7e39QA3YOvZHNpN2rLs/IQLwZaUiw2jSvxW07LxMCWtOqsWFNQg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.4.6':
-    resolution: {integrity: sha512-PnOx1YdO0W7m/HWFeYd2A6JtBO8O8Eb9h6nfJia2Dw1sRHoHpNf6lN1U4GKFRzRDBi9Nq2GrHk9PF3Vmwf7XVw==}
+  '@next/swc-linux-arm64-gnu@15.4.7':
+    resolution: {integrity: sha512-ny7lODPE7a15Qms8LZiN9wjNWIeI+iAZOFDOnv2pcHStncUr7cr9lD5XF81mdhrBXLUP9yT9RzlmSWKIazWoDw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@15.4.6':
-    resolution: {integrity: sha512-XBbuQddtY1p5FGPc2naMO0kqs4YYtLYK/8aPausI5lyOjr4J77KTG9mtlU4P3NwkLI1+OjsPzKVvSJdMs3cFaw==}
+  '@next/swc-linux-arm64-musl@15.4.7':
+    resolution: {integrity: sha512-4SaCjlFR/2hGJqZLLWycccy1t+wBrE/vyJWnYaZJhUVHccpGLG5q0C+Xkw4iRzUIkE+/dr90MJRUym3s1+vO8A==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.4.6':
-    resolution: {integrity: sha512-+WTeK7Qdw82ez3U9JgD+igBAP75gqZ1vbK6R8PlEEuY0OIe5FuYXA4aTjL811kWPf7hNeslD4hHK2WoM9W0IgA==}
+  '@next/swc-linux-x64-gnu@15.4.7':
+    resolution: {integrity: sha512-2uNXjxvONyRidg00VwvlTYDwC9EgCGNzPAPYbttIATZRxmOZ3hllk/YYESzHZb65eyZfBR5g9xgCZjRAl9YYGg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@15.4.6':
-    resolution: {integrity: sha512-XP824mCbgQsK20jlXKrUpZoh/iO3vUWhMpxCz8oYeagoiZ4V0TQiKy0ASji1KK6IAe3DYGfj5RfKP6+L2020OQ==}
+  '@next/swc-linux-x64-musl@15.4.7':
+    resolution: {integrity: sha512-ceNbPjsFgLscYNGKSu4I6LYaadq2B8tcK116nVuInpHHdAWLWSwVK6CHNvCi0wVS9+TTArIFKJGsEyVD1H+4Kg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.4.6':
-    resolution: {integrity: sha512-FxrsenhUz0LbgRkNWx6FRRJIPe/MI1JRA4W4EPd5leXO00AZ6YU8v5vfx4MDXTvN77lM/EqsE3+6d2CIeF5NYg==}
+  '@next/swc-win32-arm64-msvc@15.4.7':
+    resolution: {integrity: sha512-pZyxmY1iHlZJ04LUL7Css8bNvsYAMYOY9JRwFA3HZgpaNKsJSowD09Vg2R9734GxAcLJc2KDQHSCR91uD6/AAw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.4.6':
-    resolution: {integrity: sha512-T4ufqnZ4u88ZheczkBTtOF+eKaM14V8kbjud/XrAakoM5DKQWjW09vD6B9fsdsWS2T7D5EY31hRHdta7QKWOng==}
+  '@next/swc-win32-x64-msvc@15.4.7':
+    resolution: {integrity: sha512-HjuwPJ7BeRzgl3KrjKqD2iDng0eQIpIReyhpF5r4yeAHFwWRuAhfW92rWv/r3qeQHEwHsLRzFDvMqRjyM5DI6A==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1529,8 +1599,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-config-next@15.4.6:
-    resolution: {integrity: sha512-4uznvw5DlTTjrZgYZjMciSdDDMO2SWIuQgUNaFyC2O3Zw3Z91XeIejeVa439yRq2CnJb/KEvE4U2AeN/66FpUA==}
+  eslint-config-next@15.4.7:
+    resolution: {integrity: sha512-tkKKNVJKI4zMIgTpvG2x6mmdhuOdgXUL3AaSPHwxLQkvzi4Yryqvk6B0R5Z4gkpe7FKopz3ZmlpePH3NTHy3gA==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0 || ^9.0.0
       typescript: '>=3.3.1'
@@ -2043,6 +2113,9 @@ packages:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
@@ -2058,9 +2131,23 @@ packages:
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
+  make-cancellable-promise@2.0.0:
+    resolution: {integrity: sha512-3SEQqTpV9oqVsIWqAcmDuaNeo7yBO3tqPtqGRcKkEo0lrzD3wqbKG9mkxO65KoOgXqj+zH2phJ2LiAsdzlogSw==}
+
+  make-event-props@2.0.0:
+    resolution: {integrity: sha512-G/hncXrl4Qt7mauJEXSg3AcdYzmpkIITTNl5I+rH9sog5Yw0kK6vseJjCaPfOXqOqQuPUP89Rkhfz5kPS8ijtw==}
+
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
+
+  merge-refs@2.0.0:
+    resolution: {integrity: sha512-3+B21mYK2IqUWnd2EivABLT7ueDhb0b8/dGK8LoFQPrU61YITeCMn14F7y7qZafWNZhUEKb24cJdiT5Wxs3prg==}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -2115,8 +2202,8 @@ packages:
       react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
       react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
-  next@15.4.6:
-    resolution: {integrity: sha512-us++E/Q80/8+UekzB3SAGs71AlLDsadpFMXVNM/uQ0BMwsh9m3mr0UNQIfjKed8vpWXsASe+Qifrnu1oLIcKEQ==}
+  next@15.4.7:
+    resolution: {integrity: sha512-OcqRugwF7n7mC8OSYjvsZhhG1AYSvulor1EIUsIkbbEbf1qoE5EbH36Swj8WhF4cHqmDgkiam3z1c1W0J1Wifg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -2198,6 +2285,10 @@ packages:
 
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
+
+  pdfjs-dist@5.3.93:
+    resolution: {integrity: sha512-w3fQKVL1oGn8FRyx5JUG5tnbblggDqyx2XzA5brsJ5hSuS+I0NdnJANhmeWKLjotdbPQucLBug5t0MeWr0AAdg==}
+    engines: {node: '>=20.16.0 || >=22.3.0'}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -2317,6 +2408,16 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-pdf@10.1.0:
+    resolution: {integrity: sha512-iUI1YqWgwwZcsXjrehTp3Yi8nT/bvTaWULaRMMyJWvoqqSlopk4LQQ9GDqUnDtX3gzT2glrqrLbjIPl56a+Q3w==}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   react-remove-scroll-bar@2.3.8:
     resolution: {integrity: sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==}
@@ -2559,6 +2660,9 @@ packages:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
 
+  tiny-invariant@1.3.3:
+    resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
+
   tinyglobby@0.2.14:
     resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
     engines: {node: '>=12.0.0'}
@@ -2648,9 +2752,18 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  usehooks-ts@3.1.1:
+    resolution: {integrity: sha512-I4diPp9Cq6ieSUH2wu+fDAVQO43xwtulo+fKEidHUwZPnYImbtkTjzIJYcDcJqxgmX31GVqNFURodvcgHcW0pA==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18 || ^19 || ^19.0.0-rc
+
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
+
+  warning@4.0.3:
+    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -2736,10 +2849,10 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@clerk/backend@2.9.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@clerk/backend@2.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@clerk/shared': 3.21.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@clerk/types': 4.79.0
+      '@clerk/shared': 3.21.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/types': 4.80.0
       cookie: 1.0.2
       standardwebhooks: 1.0.0
       tslib: 2.8.1
@@ -2747,29 +2860,29 @@ snapshots:
       - react
       - react-dom
 
-  '@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@clerk/shared': 3.21.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@clerk/types': 4.79.0
+      '@clerk/shared': 3.21.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/types': 4.80.0
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
       tslib: 2.8.1
 
-  '@clerk/nextjs@6.31.2(next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@clerk/nextjs@6.31.3(next@15.4.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@clerk/backend': 2.9.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@clerk/clerk-react': 5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@clerk/shared': 3.21.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@clerk/types': 4.79.0
-      next: 15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/backend': 2.9.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/clerk-react': 5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/shared': 3.21.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/types': 4.80.0
+      next: 15.4.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
       server-only: 0.0.1
       tslib: 2.8.1
 
-  '@clerk/shared@3.21.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+  '@clerk/shared@3.21.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      '@clerk/types': 4.79.0
+      '@clerk/types': 4.80.0
       dequal: 2.0.3
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
@@ -2779,7 +2892,7 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  '@clerk/types@4.79.0':
+  '@clerk/types@4.80.0':
     dependencies:
       csstype: 3.1.3
 
@@ -3068,6 +3181,50 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@napi-rs/canvas-android-arm64@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-darwin-arm64@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-darwin-x64@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-arm-gnueabihf@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-arm64-gnu@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-arm64-musl@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-riscv64-gnu@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-x64-gnu@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-linux-x64-musl@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas-win32-x64-msvc@0.1.77':
+    optional: true
+
+  '@napi-rs/canvas@0.1.77':
+    optionalDependencies:
+      '@napi-rs/canvas-android-arm64': 0.1.77
+      '@napi-rs/canvas-darwin-arm64': 0.1.77
+      '@napi-rs/canvas-darwin-x64': 0.1.77
+      '@napi-rs/canvas-linux-arm-gnueabihf': 0.1.77
+      '@napi-rs/canvas-linux-arm64-gnu': 0.1.77
+      '@napi-rs/canvas-linux-arm64-musl': 0.1.77
+      '@napi-rs/canvas-linux-riscv64-gnu': 0.1.77
+      '@napi-rs/canvas-linux-x64-gnu': 0.1.77
+      '@napi-rs/canvas-linux-x64-musl': 0.1.77
+      '@napi-rs/canvas-win32-x64-msvc': 0.1.77
+    optional: true
+
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
       '@emnapi/core': 1.4.5
@@ -3075,34 +3232,34 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@next/env@15.4.6': {}
+  '@next/env@15.4.7': {}
 
-  '@next/eslint-plugin-next@15.4.6':
+  '@next/eslint-plugin-next@15.4.7':
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/swc-darwin-arm64@15.4.6':
+  '@next/swc-darwin-arm64@15.4.7':
     optional: true
 
-  '@next/swc-darwin-x64@15.4.6':
+  '@next/swc-darwin-x64@15.4.7':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.4.6':
+  '@next/swc-linux-arm64-gnu@15.4.7':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.4.6':
+  '@next/swc-linux-arm64-musl@15.4.7':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.4.6':
+  '@next/swc-linux-x64-gnu@15.4.7':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.4.6':
+  '@next/swc-linux-x64-musl@15.4.7':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.4.6':
+  '@next/swc-win32-arm64-msvc@15.4.7':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.4.6':
+  '@next/swc-win32-x64-msvc@15.4.7':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -3827,20 +3984,20 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  convex-helpers@0.1.104(convex@1.25.4(@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2):
+  convex-helpers@0.1.104(convex@1.25.4(@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1))(react@19.1.1)(typescript@5.9.2):
     dependencies:
-      convex: 1.25.4(@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+      convex: 1.25.4(@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
     optionalDependencies:
       react: 19.1.1
       typescript: 5.9.2
 
-  convex@1.25.4(@clerk/clerk-react@5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
+  convex@1.25.4(@clerk/clerk-react@5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
     dependencies:
       esbuild: 0.25.4
       jwt-decode: 4.0.0
       prettier: 3.5.3
     optionalDependencies:
-      '@clerk/clerk-react': 5.42.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@clerk/clerk-react': 5.43.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
 
   cookie@1.0.2: {}
@@ -4053,9 +4210,9 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-config-next@15.4.6(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2):
+  eslint-config-next@15.4.7(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2):
     dependencies:
-      '@next/eslint-plugin-next': 15.4.6
+      '@next/eslint-plugin-next': 15.4.7
       '@rushstack/eslint-patch': 1.12.0
       '@typescript-eslint/eslint-plugin': 8.39.1(@typescript-eslint/parser@8.39.1(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2))(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
       '@typescript-eslint/parser': 8.39.1(eslint@9.33.0(jiti@2.5.1))(typescript@5.9.2)
@@ -4633,6 +4790,8 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
+  lodash.debounce@4.0.8: {}
+
   lodash.merge@4.6.2: {}
 
   loose-envify@1.4.0:
@@ -4647,7 +4806,15 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  make-cancellable-promise@2.0.0: {}
+
+  make-event-props@2.0.0: {}
+
   math-intrinsics@1.1.0: {}
+
+  merge-refs@2.0.0(@types/react@19.1.10):
+    optionalDependencies:
+      '@types/react': 19.1.10
 
   merge2@1.4.1: {}
 
@@ -4687,9 +4854,9 @@ snapshots:
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
 
-  next@15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  next@15.4.7(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
-      '@next/env': 15.4.6
+      '@next/env': 15.4.7
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001734
       postcss: 8.4.31
@@ -4697,14 +4864,14 @@ snapshots:
       react-dom: 19.1.1(react@19.1.1)
       styled-jsx: 5.1.6(react@19.1.1)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.4.6
-      '@next/swc-darwin-x64': 15.4.6
-      '@next/swc-linux-arm64-gnu': 15.4.6
-      '@next/swc-linux-arm64-musl': 15.4.6
-      '@next/swc-linux-x64-gnu': 15.4.6
-      '@next/swc-linux-x64-musl': 15.4.6
-      '@next/swc-win32-arm64-msvc': 15.4.6
-      '@next/swc-win32-x64-msvc': 15.4.6
+      '@next/swc-darwin-arm64': 15.4.7
+      '@next/swc-darwin-x64': 15.4.7
+      '@next/swc-linux-arm64-gnu': 15.4.7
+      '@next/swc-linux-arm64-musl': 15.4.7
+      '@next/swc-linux-x64-gnu': 15.4.7
+      '@next/swc-linux-x64-musl': 15.4.7
+      '@next/swc-win32-arm64-msvc': 15.4.7
+      '@next/swc-win32-x64-msvc': 15.4.7
       sharp: 0.34.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -4785,6 +4952,10 @@ snapshots:
 
   path-parse@1.0.7: {}
 
+  pdfjs-dist@5.3.93:
+    optionalDependencies:
+      '@napi-rs/canvas': 0.1.77
+
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -4835,6 +5006,21 @@ snapshots:
       scheduler: 0.26.0
 
   react-is@16.13.1: {}
+
+  react-pdf@10.1.0(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      clsx: 2.1.1
+      dequal: 2.0.3
+      make-cancellable-promise: 2.0.0
+      make-event-props: 2.0.0
+      merge-refs: 2.0.0(@types/react@19.1.10)
+      pdfjs-dist: 5.3.93
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
+      tiny-invariant: 1.3.3
+      warning: 4.0.3
+    optionalDependencies:
+      '@types/react': 19.1.10
 
   react-remove-scroll-bar@2.3.8(@types/react@19.1.10)(react@19.1.1):
     dependencies:
@@ -5148,6 +5334,8 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
+  tiny-invariant@1.3.3: {}
+
   tinyglobby@0.2.14:
     dependencies:
       fdir: 6.4.6(picomatch@4.0.3)
@@ -5272,7 +5460,16 @@ snapshots:
     dependencies:
       react: 19.1.1
 
+  usehooks-ts@3.1.1(react@19.1.1):
+    dependencies:
+      lodash.debounce: 4.0.8
+      react: 19.1.1
+
   uuid@10.0.0: {}
+
+  warning@4.0.3:
+    dependencies:
+      loose-envify: 1.4.0
 
   which-boxed-primitive@1.1.1:
     dependencies:

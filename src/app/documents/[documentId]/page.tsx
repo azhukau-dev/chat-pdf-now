@@ -1,21 +1,24 @@
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from '@/components/ui/resizable';
+import { preloadQuery } from 'convex/nextjs';
+
+import { api } from '@/convex/_generated/api';
+import { Id } from '@/convex/_generated/dataModel';
+import { getAuthToken } from '@/lib/auth';
+
+import DocumentChatPageClient from './page-client';
 
 export default async function DocumentChatPage({
   params,
 }: {
-  params: Promise<{ documentId: string }>;
+  params: Promise<{ documentId: Id<'documents'> }>;
 }) {
   const { documentId } = await params;
+  const token = await getAuthToken();
 
-  return (
-    <ResizablePanelGroup direction="horizontal">
-      <ResizablePanel>DOCUMENT PREVIEW</ResizablePanel>
-      <ResizableHandle className="w-1" />
-      <ResizablePanel>DOCUMENT CHAT</ResizablePanel>
-    </ResizablePanelGroup>
+  const preloadedFileUrl = await preloadQuery(
+    api.documents.getDocumentUrl,
+    { documentId },
+    { token },
   );
+
+  return <DocumentChatPageClient preloadedFileUrl={preloadedFileUrl} />;
 }

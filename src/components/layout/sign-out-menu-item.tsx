@@ -1,6 +1,7 @@
 'use client';
 
 import { useClerk } from '@clerk/nextjs';
+import { LogOut } from 'lucide-react';
 
 import { DropdownMenuItem } from '../ui/dropdown-menu';
 
@@ -9,7 +10,7 @@ export default function SignOutMenuItem() {
 
   return (
     <DropdownMenuItem onClick={() => signOut({ redirectUrl: '/' })}>
-      Log out
+      <LogOut /> Sign out
     </DropdownMenuItem>
   );
 }

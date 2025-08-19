@@ -49,13 +49,13 @@ export default function DocumentListItem(props: DocumentListItemProps) {
           <Link href={`/documents/${document._id}`}>{document.name}</Link>
         </Button>
       </TableCell>
-      <TableCell>
+      <TableCell className="text-right">
         <FileSizeDisplay size={document.size} />
       </TableCell>
-      <TableCell>
+      <TableCell className="text-right">
         <CreationDateDisplay creationDate={document._creationTime} />
       </TableCell>
-      <TableCell>
+      <TableCell className="text-right">
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="ghost" size="icon" className="cursor-pointer">

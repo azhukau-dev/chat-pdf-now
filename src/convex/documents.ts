@@ -49,3 +49,16 @@ export const deleteDocument = authMutation({
     await ctx.db.delete(documentId);
   },
 });
+
+export const getDocumentUrl = authQuery({
+  args: {
+    documentId: v.id('documents'),
+  },
+  handler: async (ctx, { documentId }) => {
+    const document = await ctx.db.get(documentId);
+    if (!document) {
+      throw new Error('Document not found');
+    }
+    return await ctx.storage.getUrl(document.storageId);
+  },
+});

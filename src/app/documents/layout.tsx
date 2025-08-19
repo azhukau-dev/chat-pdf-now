@@ -1,11 +1,13 @@
-import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
-import { Bot, User } from 'lucide-react';
+import { Bot, FileText, User } from 'lucide-react';
 import Link from 'next/link';
 
 import SignOutMenuItem from '@/components/layout/sign-out-menu-item';
 import { Button } from '@/components/ui/button';
 import {
+  DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
@@ -30,7 +32,14 @@ export default function DocumentsLayout({
                 <User />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="w-56" align="end">
+              <DropdownMenuItem asChild>
+                <Link href="/documents">
+                  <FileText />
+                  All documents
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <SignOutMenuItem />
             </DropdownMenuContent>
           </DropdownMenu>
