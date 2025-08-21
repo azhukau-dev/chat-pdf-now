@@ -1,6 +1,14 @@
+import { openai } from '@ai-sdk/openai';
+import { RAG } from '@convex-dev/rag';
 import { v } from 'convex/values';
 
+import { components } from './_generated/api';
 import { authMutation, authQuery } from './util';
+
+export const rag = new RAG(components.rag, {
+  textEmbeddingModel: openai.embedding('text-embedding-3-small'),
+  embeddingDimension: 1536,
+});
 
 export const generateUploadUrl = authMutation({
   handler: async (ctx) => {
