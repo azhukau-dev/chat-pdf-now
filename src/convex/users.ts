@@ -2,7 +2,7 @@ import { UserJSON } from '@clerk/backend';
 import { Validator, v } from 'convex/values';
 
 import { internalMutation, internalQuery } from './_generated/server';
-import { authQuery, getCurrentUser } from './util';
+import { authQuery, userByExternalId } from './util';
 
 export const current = authQuery({
   args: {},
@@ -33,7 +33,7 @@ export const upsertFromClerk = internalMutation({
       externalId: data.id,
     };
 
-    const user = await getCurrentUser(ctx);
+    const user = await userByExternalId(ctx, data.id);
     if (user === null) {
       await ctx.db.insert('users', userAttributes);
     } else {
@@ -47,7 +47,7 @@ export const deleteFromClerk = internalMutation({
     clerkUserId: v.string(),
   },
   handler: async (ctx, { clerkUserId }) => {
-    const user = await getCurrentUser(ctx);
+    const user = await userByExternalId(ctx, clerkUserId);
 
     if (user !== null) {
       await ctx.db.delete(user._id);

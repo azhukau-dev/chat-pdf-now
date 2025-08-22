@@ -64,7 +64,7 @@ export async function getCurrentUser(ctx: QueryCtx | MutationCtx) {
   return await userByExternalId(ctx, identity.subject);
 }
 
-async function userByExternalId(
+export async function userByExternalId(
   ctx: QueryCtx | MutationCtx,
   externalId: string,
 ) {
