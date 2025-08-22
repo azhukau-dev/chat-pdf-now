@@ -61,7 +61,7 @@ export async function getCurrentUser(ctx: QueryCtx | MutationCtx) {
   if (identity === null) {
     return null;
   }
-  return userByExternalId(ctx, identity.subject);
+  return await userByExternalId(ctx, identity.subject);
 }
 
 async function userByExternalId(
