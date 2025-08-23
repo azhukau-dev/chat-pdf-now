@@ -6,17 +6,15 @@ import { getAuthToken } from '@/lib/auth';
 
 import DocumentChatPageClient from './page-client';
 
-export default async function DocumentChatPage({
-  params,
-}: {
-  params: Promise<{ documentId: Id<'documents'> }>;
-}) {
-  const { documentId } = await params;
+export default async function DocumentChatPage(
+  props: PageProps<'/documents/[documentId]'>,
+) {
+  const { documentId } = await props.params;
   const token = await getAuthToken();
 
   const preloadedFileUrl = await preloadQuery(
     api.documents.getDocumentUrl,
-    { documentId },
+    { documentId: documentId as Id<'documents'> },
     { token },
   );
 

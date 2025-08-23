@@ -7,7 +7,8 @@
     "dev:convex": "convex dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@ai-sdk/openai": "2.0.19",
