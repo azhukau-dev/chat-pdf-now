@@ -1,12 +1,16 @@
 'use client';
 
 import { Preloaded, usePreloadedQuery } from 'convex/react';
+import dynamic from 'next/dynamic';
 
 import { api } from '@/convex/_generated/api';
 
 import DocumentList from './document-list';
 import DocumentListEmpty from './document-list-empty';
-import DocumentUploadButton from './document-upload-button';
+
+const DocumentUploadButton = dynamic(() => import('./document-upload-button'), {
+  ssr: false,
+});
 
 export interface DocumentListViewProps {
   preloadedDocuments: Preloaded<typeof api.documents.getDocuments>;

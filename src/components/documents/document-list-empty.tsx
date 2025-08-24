@@ -1,6 +1,11 @@
-import { FileText } from 'lucide-react';
+'use client';
 
-import DocumentUploadButton from './document-upload-button';
+import { FileText } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const DocumentUploadButton = dynamic(() => import('./document-upload-button'), {
+  ssr: false,
+});
 
 export default function DocumentListEmpty() {
   return (

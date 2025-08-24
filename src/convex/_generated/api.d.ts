@@ -8,7 +8,7 @@
  * @module
  */
 
-import type * as documentAgent from "../documentAgent.js";
+import type * as chat from "../chat.js";
 import type * as documents from "../documents.js";
 import type * as http from "../http.js";
 import type * as users from "../users.js";
@@ -29,7 +29,7 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  documentAgent: typeof documentAgent;
+  chat: typeof chat;
   documents: typeof documents;
   http: typeof http;
   users: typeof users;

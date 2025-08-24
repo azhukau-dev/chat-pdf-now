@@ -2,10 +2,16 @@
 
 import { Loader2, Upload } from 'lucide-react';
 import { useCallback } from 'react';
+import { pdfjs } from 'react-pdf';
 
 import useDocumentUpload from '@/hooks/use-document-upload';
 
 import { Button } from '../ui/button';
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
 export default function DocumentUploadButton() {
   const { upload, isUploading } = useDocumentUpload();
