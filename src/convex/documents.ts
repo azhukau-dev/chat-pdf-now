@@ -1,23 +1,127 @@
-import { openai } from '@ai-sdk/openai';
-import { RAG } from '@convex-dev/rag';
+import { vEntryId } from '@convex-dev/rag';
 import { v } from 'convex/values';
 
-import { components, internal } from './_generated/api';
-import { internalMutation, internalQuery } from './_generated/server';
-import { authAction, authMutation, authQuery } from './util';
+import { internal } from './_generated/api';
+import { internalAction, internalMutation } from './_generated/server';
+import * as Agent from './model/agent';
+import * as Auth from './model/auth';
+import * as Chats from './model/chats';
+import * as Documents from './model/documents';
+import * as Rag from './model/rag';
+import * as Users from './model/users';
 
-export const rag = new RAG(components.rag, {
-  textEmbeddingModel: openai.embedding('text-embedding-3-small'),
-  embeddingDimension: 1536,
+export const initializeChatForDocument = internalMutation({
+  args: {
+    documentId: v.id('documents'),
+    agentThreadId: v.string(),
+    ragEntryId: vEntryId,
+  },
+  handler: async (ctx, { documentId, agentThreadId, ragEntryId }) => {
+    return await Chats.addChat(ctx, {
+      documentId,
+      agentThreadId,
+      ragEntryId,
+    });
+  },
 });
 
-export const generateUploadUrl = authMutation({
+export const addDocumentEmbedding = internalAction({
+  args: {
+    namespace: v.string(),
+    key: v.string(),
+    text: v.string(),
+  },
+  handler: async (ctx, { namespace, key, text }) => {
+    return await Rag.addEmbedding(ctx, {
+      namespace,
+      key,
+      text,
+    });
+  },
+});
+
+export const createAgentThread = internalMutation({
+  handler: async (ctx) => {
+    return await Agent.createThread(ctx);
+  },
+});
+
+export const deleteChatById = internalMutation({
+  args: {
+    chatId: v.id('chats'),
+  },
+  handler: async (ctx, { chatId }) => {
+    await Chats.deleteChat(ctx, chatId);
+  },
+});
+
+export const cleanupDocumentResources = internalAction({
+  args: {
+    chatId: v.id('chats'),
+    ragEntryId: vEntryId,
+    agentThreadId: v.string(),
+  },
+  handler: async (ctx, { chatId, ragEntryId, agentThreadId }) => {
+    await Rag.deleteEmbedding(ctx, ragEntryId);
+    await Agent.deleteThread(ctx, agentThreadId);
+    await ctx.runMutation(internal.documents.deleteChatById, {
+      chatId,
+    });
+  },
+});
+
+export const linkDocumentToChat = internalMutation({
+  args: {
+    documentId: v.id('documents'),
+    chatId: v.id('chats'),
+  },
+  handler: async (ctx, { documentId, chatId }) => {
+    await Documents.updateDocument(ctx, documentId, {
+      chatId,
+    });
+  },
+});
+
+export const initializeDocumentChatSystem = internalAction({
+  args: {
+    documentId: v.id('documents'),
+    userId: v.id('users'),
+    text: v.string(),
+  },
+  handler: async (ctx, { documentId, userId, text }) => {
+    const { threadId: agentThreadId } = await ctx.runMutation(
+      internal.documents.createAgentThread,
+    );
+    const { entryId: ragEntryId } = await ctx.runAction(
+      internal.documents.addDocumentEmbedding,
+      {
+        namespace: userId,
+        key: documentId,
+        text,
+      },
+    );
+    const chatId = await ctx.runMutation(
+      internal.documents.initializeChatForDocument,
+      {
+        documentId,
+        agentThreadId,
+        ragEntryId,
+      },
+    );
+    await ctx.runMutation(internal.documents.linkDocumentToChat, {
+      documentId,
+      chatId,
+    });
+  },
+});
+
+export const generateFileUploadUrl = Auth.authMutation({
   handler: async (ctx) => {
     return await ctx.storage.generateUploadUrl();
   },
 });
 
-export const sendDocument = authAction({
+export const processUploadedDocument = Auth.authMutation({
   args: {
     storageId: v.id('_storage'),
     name: v.string(),
@@ -25,106 +129,69 @@ export const sendDocument = authAction({
     text: v.string(),
   },
   handler: async (ctx, { name, storageId, size, text }) => {
-    const { user } = ctx;
-    const documentId = await ctx.runMutation(
-      internal.documents.insertDocument,
-      {
-        name,
-        storageId,
-        userId: user._id,
-        size,
-      },
-    );
-    await rag.add(ctx, {
-      namespace: user._id,
-      key: documentId,
-      text,
-    });
-  },
-});
-
-export const insertDocument = internalMutation({
-  args: {
-    name: v.string(),
-    storageId: v.id('_storage'),
-    userId: v.id('users'),
-    size: v.number(),
-  },
-  handler: async (ctx, { name, storageId, userId, size }) => {
-    return await ctx.db.insert('documents', {
+    const user = await Users.getCurrentUserOrThrow(ctx);
+    const documentId = await Documents.addDocument(ctx, {
       name,
       storageId,
-      userId,
+      userId: user._id,
       size,
+      chatId: null,
     });
+    await ctx.scheduler.runAfter(
+      0,
+      internal.documents.initializeDocumentChatSystem,
+      {
+        documentId,
+        userId: user._id,
+        text,
+      },
+    );
   },
 });
 
-export const getDocuments = authQuery({
+export const getUserDocuments = Auth.authQuery({
   handler: async (ctx) => {
-    const { user } = ctx;
-    return await ctx.db
-      .query('documents')
-      .withIndex('by_user_id', (q) => q.eq('userId', user._id))
-      .order('desc')
-      .collect();
+    const user = await Users.getCurrentUserOrThrow(ctx);
+    return await Documents.getDocuments(ctx, user._id);
   },
 });
 
-export const deleteDocument = authAction({
+export const getDocumentById = Auth.authQuery({
   args: {
     documentId: v.id('documents'),
   },
   handler: async (ctx, { documentId }) => {
-    const { user } = ctx;
-    const document = await ctx.runQuery(internal.documents.getDocumentRecord, {
-      documentId,
-    });
-    if (!document) {
-      throw new Error('Document not found');
-    }
-
-    await ctx.runMutation(internal.documents.deleteDocumentRecord, {
-      documentId,
-      storageId: document.storageId,
-    });
-
-    await rag.deleteByKey(ctx, {
-      namespaceId: user._id,
-      key: documentId,
-    });
+    return await Documents.getDocument(ctx, documentId);
   },
 });
 
-export const deleteDocumentRecord = internalMutation({
-  args: {
-    documentId: v.id('documents'),
-    storageId: v.id('_storage'),
-  },
-  handler: async (ctx, { documentId, storageId }) => {
-    await ctx.storage.delete(storageId);
-    await ctx.db.delete(documentId);
-  },
-});
-
-export const getDocumentUrl = authQuery({
+export const deleteDocument = Auth.authMutation({
   args: {
     documentId: v.id('documents'),
   },
   handler: async (ctx, { documentId }) => {
-    const document = await ctx.db.get(documentId);
-    if (!document) {
-      throw new Error('Document not found');
-    }
+    const document = await Documents.getDocument(ctx, documentId);
+    const chat = await Chats.getChat(ctx, document.chatId!);
+
+    await Documents.deleteDocument(ctx, documentId, document.storageId);
+    await ctx.scheduler.runAfter(
+      0,
+      internal.documents.cleanupDocumentResources,
+      {
+        chatId: chat._id,
+        ragEntryId: chat.ragEntryId,
+        agentThreadId: chat.agentThreadId,
+      },
+    );
+  },
+});
+
+export const getDocumentDownloadUrl = Auth.authQuery({
+  args: {
+    documentId: v.id('documents'),
+  },
+  handler: async (ctx, { documentId }) => {
+    const document = await Documents.getDocument(ctx, documentId);
     return await ctx.storage.getUrl(document.storageId);
-  },
-});
-
-export const getDocumentRecord = internalQuery({
-  args: {
-    documentId: v.id('documents'),
-  },
-  handler: async (ctx, { documentId }) => {
-    return await ctx.db.get(documentId);
   },
 });

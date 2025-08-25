@@ -13,7 +13,7 @@ const DocumentUploadButton = dynamic(() => import('./document-upload-button'), {
 });
 
 export interface DocumentListViewProps {
-  preloadedDocuments: Preloaded<typeof api.documents.getDocuments>;
+  preloadedDocuments: Preloaded<typeof api.documents.getUserDocuments>;
 }
 
 export default function DocumentListView(props: DocumentListViewProps) {

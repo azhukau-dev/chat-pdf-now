@@ -13,10 +13,21 @@ export default async function DocumentChatPage(
   const token = await getAuthToken();
 
   const preloadedFileUrl = await preloadQuery(
-    api.documents.getDocumentUrl,
+    api.documents.getDocumentDownloadUrl,
     { documentId: documentId as Id<'documents'> },
     { token },
   );
 
-  return <DocumentChatPageClient preloadedFileUrl={preloadedFileUrl} />;
+  const preloadedDocument = await preloadQuery(
+    api.documents.getDocumentById,
+    { documentId: documentId as Id<'documents'> },
+    { token },
+  );
+
+  return (
+    <DocumentChatPageClient
+      preloadedFileUrl={preloadedFileUrl}
+      preloadedDocument={preloadedDocument}
+    />
+  );
 }

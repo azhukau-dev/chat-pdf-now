@@ -1,4 +1,4 @@
-import { useAction, useMutation } from 'convex/react';
+import { useMutation } from 'convex/react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -9,8 +9,12 @@ export default function useDocumentUpload() {
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const generateUploadUrl = useMutation(api.documents.generateUploadUrl);
-  const sendDocument = useAction(api.documents.sendDocument);
+  const generateFileUploadUrl = useMutation(
+    api.documents.generateFileUploadUrl,
+  );
+  const processUploadedDocument = useMutation(
+    api.documents.processUploadedDocument,
+  );
 
   async function upload(file: File) {
     setIsUploading(true);
@@ -18,14 +22,14 @@ export default function useDocumentUpload() {
 
     try {
       const text = await extractTextFromPdf(file);
-      const postUrl = await generateUploadUrl();
+      const postUrl = await generateFileUploadUrl();
       const result = await fetch(postUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/pdf' },
         body: file,
       });
       const { storageId } = await result.json();
-      await sendDocument({
+      await processUploadedDocument({
         name: file.name,
         storageId,
         size: file.size,

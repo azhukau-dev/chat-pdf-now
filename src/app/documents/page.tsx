@@ -7,7 +7,7 @@ import { getAuthToken } from '@/lib/auth';
 export default async function DocumentsPage() {
   const token = await getAuthToken();
   const preloadedDocuments = await preloadQuery(
-    api.documents.getDocuments,
+    api.documents.getUserDocuments,
     {},
     { token },
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useAction } from 'convex/react';
+import { useMutation } from 'convex/react';
 import { Trash } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -31,7 +31,7 @@ export interface DocumentListItemProps {
 export default function DocumentListItem(props: DocumentListItemProps) {
   const { document } = props;
 
-  const deleteDocument = useAction(api.documents.deleteDocument);
+  const deleteDocument = useMutation(api.documents.deleteDocument);
 
   async function handleDelete(documentId: Id<'documents'>) {
     try {

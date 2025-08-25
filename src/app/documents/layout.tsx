@@ -18,7 +18,7 @@ export default function DocumentsLayout({
 }) {
   return (
     <>
-      <header className="shadom-sm flex flex-shrink-0 items-center border-b bg-white p-4">
+      <header className="shadom-sm flex flex-shrink-0 items-center border-b bg-stone-50 p-4">
         <div className="flex items-center">
           <Link href="/">
             <Bot className="size-8 transition-colors duration-200 hover:text-emerald-600" />

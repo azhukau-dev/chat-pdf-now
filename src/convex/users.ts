@@ -1,25 +1,14 @@
 import { UserJSON } from '@clerk/backend';
 import { Validator, v } from 'convex/values';
 
-import { internalMutation, internalQuery } from './_generated/server';
-import { authQuery, userByExternalId } from './util';
+import { internalMutation } from './_generated/server';
+import * as Auth from './model/auth';
+import * as Users from './model/users';
 
-export const current = authQuery({
+export const current = Auth.authQuery({
   args: {},
   handler: async (ctx) => {
-    return ctx.user;
-  },
-});
-
-export const getByExternalId = internalQuery({
-  args: {
-    externalId: v.string(),
-  },
-  handler: async (ctx, { externalId }) => {
-    return await ctx.db
-      .query('users')
-      .withIndex('by_external_id', (q) => q.eq('externalId', externalId))
-      .unique();
+    return await Users.getCurrentUserOrThrow(ctx);
   },
 });
 
@@ -33,11 +22,11 @@ export const upsertFromClerk = internalMutation({
       externalId: data.id,
     };
 
-    const user = await userByExternalId(ctx, data.id);
+    const user = await Users.getUserByExternalId(ctx, data.id);
     if (user === null) {
-      await ctx.db.insert('users', userAttributes);
+      await Users.addUser(ctx, userAttributes);
     } else {
-      await ctx.db.patch(user._id, userAttributes);
+      await Users.updateUser(ctx, user._id, userAttributes);
     }
   },
 });
@@ -47,10 +36,10 @@ export const deleteFromClerk = internalMutation({
     clerkUserId: v.string(),
   },
   handler: async (ctx, { clerkUserId }) => {
-    const user = await userByExternalId(ctx, clerkUserId);
+    const user = await Users.getUserByExternalId(ctx, clerkUserId);
 
     if (user !== null) {
-      await ctx.db.delete(user._id);
+      await Users.deleteUser(ctx, user._id);
     } else {
       console.warn(
         `Cannot delete user, there is none for Clerk user ID: ${clerkUserId}`,

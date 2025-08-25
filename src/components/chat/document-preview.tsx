@@ -20,7 +20,7 @@ const options = {
 
 const maxWidth = 800;
 
-export default function PdfPreview({ fileUrl }: { fileUrl: string }) {
+export default function DocumentPreview({ fileUrl }: { fileUrl: string }) {
   const [containerWidth, setContainerWidth] = useState<number>();
   const [numPages, setNumPages] = useState<number>();
 
@@ -38,7 +38,7 @@ export default function PdfPreview({ fileUrl }: { fileUrl: string }) {
   }
 
   return (
-    <div ref={containerRef} className="h-full w-full overflow-y-auto">
+    <div ref={containerRef} className="h-full w-full overflow-y-auto p-4">
       <Document
         file={fileUrl}
         options={options}
@@ -52,6 +52,7 @@ export default function PdfPreview({ fileUrl }: { fileUrl: string }) {
             width={
               containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
             }
+            className="shadow-md"
           />
         ))}
       </Document>

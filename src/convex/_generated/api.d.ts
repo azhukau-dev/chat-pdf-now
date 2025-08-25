@@ -8,11 +8,16 @@
  * @module
  */
 
-import type * as chat from "../chat.js";
+import type * as chats from "../chats.js";
 import type * as documents from "../documents.js";
 import type * as http from "../http.js";
+import type * as model_agent from "../model/agent.js";
+import type * as model_auth from "../model/auth.js";
+import type * as model_chats from "../model/chats.js";
+import type * as model_documents from "../model/documents.js";
+import type * as model_rag from "../model/rag.js";
+import type * as model_users from "../model/users.js";
 import type * as users from "../users.js";
-import type * as util from "../util.js";
 
 import type {
   ApiFromModules,
@@ -29,11 +34,16 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  chat: typeof chat;
+  chats: typeof chats;
   documents: typeof documents;
   http: typeof http;
+  "model/agent": typeof model_agent;
+  "model/auth": typeof model_auth;
+  "model/chats": typeof model_chats;
+  "model/documents": typeof model_documents;
+  "model/rag": typeof model_rag;
+  "model/users": typeof model_users;
   users: typeof users;
-  util: typeof util;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 
