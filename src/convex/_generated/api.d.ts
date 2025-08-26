@@ -13,7 +13,6 @@ import type * as documents from "../documents.js";
 import type * as http from "../http.js";
 import type * as model_agent from "../model/agent.js";
 import type * as model_auth from "../model/auth.js";
-import type * as model_chats from "../model/chats.js";
 import type * as model_documents from "../model/documents.js";
 import type * as model_rag from "../model/rag.js";
 import type * as model_users from "../model/users.js";
@@ -39,7 +38,6 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   "model/agent": typeof model_agent;
   "model/auth": typeof model_auth;
-  "model/chats": typeof model_chats;
   "model/documents": typeof model_documents;
   "model/rag": typeof model_rag;
   "model/users": typeof model_users;

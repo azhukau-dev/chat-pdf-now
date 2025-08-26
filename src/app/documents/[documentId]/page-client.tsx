@@ -36,7 +36,7 @@ export default function DocumentChatPageClient(
       </ResizablePanel>
       <ResizableHandle withHandle className="w-1" />
       <ResizablePanel className="min-w-[500px]">
-        <DocumentChat document={document!} />
+        <DocumentChat document={document} />
       </ResizablePanel>
     </ResizablePanelGroup>
   );

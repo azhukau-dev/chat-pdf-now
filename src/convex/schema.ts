@@ -12,11 +12,7 @@ export default defineSchema({
     userId: v.id('users'),
     storageId: v.id('_storage'),
     size: v.number(),
-    chatId: v.union(v.id('chats'), v.null()),
+    agentThreadId: v.union(v.string(), v.null()),
+    ragEntryId: v.union(vEntryId, v.null()),
   }).index('by_user_id', ['userId']),
-  chats: defineTable({
-    documentId: v.id('documents'),
-    agentThreadId: v.string(),
-    ragEntryId: vEntryId,
-  }),
 });

@@ -5,20 +5,18 @@ import { internal } from './_generated/api';
 import { internalAction, internalMutation } from './_generated/server';
 import * as Agent from './model/agent';
 import * as Auth from './model/auth';
-import * as Chats from './model/chats';
 import * as Documents from './model/documents';
 import * as Rag from './model/rag';
 import * as Users from './model/users';
 
-export const initializeChatForDocument = internalMutation({
+export const updateDocumentWithThreadAndRagEntry = internalMutation({
   args: {
     documentId: v.id('documents'),
     agentThreadId: v.string(),
     ragEntryId: vEntryId,
   },
   handler: async (ctx, { documentId, agentThreadId, ragEntryId }) => {
-    return await Chats.addChat(ctx, {
-      documentId,
+    await Documents.updateDocument(ctx, documentId, {
       agentThreadId,
       ragEntryId,
     });
@@ -27,14 +25,14 @@ export const initializeChatForDocument = internalMutation({
 
 export const addDocumentEmbedding = internalAction({
   args: {
-    namespace: v.string(),
-    key: v.string(),
+    userId: v.id('users'),
+    documentId: v.id('documents'),
     text: v.string(),
   },
-  handler: async (ctx, { namespace, key, text }) => {
-    return await Rag.addEmbedding(ctx, {
-      namespace,
-      key,
+  handler: async (ctx, { userId, documentId, text }) => {
+    return await Rag.addDocumentEmbedding(ctx, {
+      userId,
+      documentId,
       text,
     });
   },
@@ -46,39 +44,14 @@ export const createAgentThread = internalMutation({
   },
 });
 
-export const deleteChatById = internalMutation({
-  args: {
-    chatId: v.id('chats'),
-  },
-  handler: async (ctx, { chatId }) => {
-    await Chats.deleteChat(ctx, chatId);
-  },
-});
-
 export const cleanupDocumentResources = internalAction({
   args: {
-    chatId: v.id('chats'),
     ragEntryId: vEntryId,
     agentThreadId: v.string(),
   },
-  handler: async (ctx, { chatId, ragEntryId, agentThreadId }) => {
-    await Rag.deleteEmbedding(ctx, ragEntryId);
+  handler: async (ctx, { ragEntryId, agentThreadId }) => {
+    await Rag.deleteDocumentEmbedding(ctx, ragEntryId);
     await Agent.deleteThread(ctx, agentThreadId);
-    await ctx.runMutation(internal.documents.deleteChatById, {
-      chatId,
-    });
-  },
-});
-
-export const linkDocumentToChat = internalMutation({
-  args: {
-    documentId: v.id('documents'),
-    chatId: v.id('chats'),
-  },
-  handler: async (ctx, { documentId, chatId }) => {
-    await Documents.updateDocument(ctx, documentId, {
-      chatId,
-    });
   },
 });
 
@@ -95,23 +68,19 @@ export const initializeDocumentChatSystem = internalAction({
     const { entryId: ragEntryId } = await ctx.runAction(
       internal.documents.addDocumentEmbedding,
       {
-        namespace: userId,
-        key: documentId,
+        userId,
+        documentId,
         text,
       },
     );
-    const chatId = await ctx.runMutation(
-      internal.documents.initializeChatForDocument,
+    await ctx.runMutation(
+      internal.documents.updateDocumentWithThreadAndRagEntry,
       {
         documentId,
         agentThreadId,
         ragEntryId,
       },
     );
-    await ctx.runMutation(internal.documents.linkDocumentToChat, {
-      documentId,
-      chatId,
-    });
   },
 });
 
@@ -135,7 +104,8 @@ export const processUploadedDocument = Auth.authMutation({
       storageId,
       userId: user._id,
       size,
-      chatId: null,
+      agentThreadId: null,
+      ragEntryId: null,
     });
     await ctx.scheduler.runAfter(
       0,
@@ -171,16 +141,14 @@ export const deleteDocument = Auth.authMutation({
   },
   handler: async (ctx, { documentId }) => {
     const document = await Documents.getDocument(ctx, documentId);
-    const chat = await Chats.getChat(ctx, document.chatId!);
 
     await Documents.deleteDocument(ctx, documentId, document.storageId);
     await ctx.scheduler.runAfter(
       0,
       internal.documents.cleanupDocumentResources,
       {
-        chatId: chat._id,
-        ragEntryId: chat.ragEntryId,
-        agentThreadId: chat.agentThreadId,
+        ragEntryId: document.ragEntryId!,
+        agentThreadId: document.agentThreadId!,
       },
     );
   },

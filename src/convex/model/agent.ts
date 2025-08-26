@@ -5,9 +5,10 @@ import { PaginationOptions } from 'convex/server';
 import { components } from '../_generated/api';
 import { ActionCtx, MutationCtx, QueryCtx } from '../_generated/server';
 
-const agent = new Agent(components.agent, {
+export const documentAgent = new Agent(components.agent, {
   name: 'Document Agent',
   languageModel: openai.chat('gpt-4o-mini'),
+  textEmbeddingModel: openai.textEmbedding('text-embedding-3-small'),
   instructions: `
     You are a helpful assistant that can answer questions about the documents.
     You can use the document to answer questions.
@@ -16,11 +17,11 @@ const agent = new Agent(components.agent, {
 });
 
 export async function createThread(ctx: MutationCtx) {
-  return await agent.createThread(ctx);
+  return await documentAgent.createThread(ctx);
 }
 
 export async function deleteThread(ctx: ActionCtx, threadId: string) {
-  return await agent.deleteThreadSync(ctx, { threadId });
+  return await documentAgent.deleteThreadSync(ctx, { threadId });
 }
 
 export async function getMessages(
@@ -28,5 +29,5 @@ export async function getMessages(
   threadId: string,
   paginationOpts: PaginationOptions,
 ) {
-  return await agent.listMessages(ctx, { threadId, paginationOpts });
+  return await documentAgent.listMessages(ctx, { threadId, paginationOpts });
 }
