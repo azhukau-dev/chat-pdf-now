@@ -8,22 +8,21 @@ import {
 import { useMutation } from 'convex/react';
 import { useState } from 'react';
 
-import { api } from '@/convex/_generated/api';
-import { Doc } from '@/convex/_generated/dataModel';
-
 import {
   Conversation,
   ConversationContent,
   ConversationScrollButton,
-} from '../ai-elements/conversation';
-import { Message, MessageContent } from '../ai-elements/message';
+} from '@/components/ai-elements/conversation';
+import { Message, MessageContent } from '@/components/ai-elements/message';
 import {
   PromptInput,
   PromptInputSubmit,
   PromptInputTextarea,
   PromptInputToolbar,
-} from '../ai-elements/prompt-input';
-import { Response } from '../ai-elements/response';
+} from '@/components/ai-elements/prompt-input';
+import { Response } from '@/components/ai-elements/response';
+import { api } from '@/convex/_generated/api';
+import { Doc } from '@/convex/_generated/dataModel';
 
 export interface DocumentChatProps {
   document: Doc<'documents'>;

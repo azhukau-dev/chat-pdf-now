@@ -1,7 +1,7 @@
 import { preloadQuery } from 'convex/nextjs';
 
-import DocumentListView from '@/components/documents/document-list-view';
 import { api } from '@/convex/_generated/api';
+import DocumentListView from '@/features/documents/document-list-view';
 import { getAuthToken } from '@/lib/auth';
 
 export default async function DocumentsPage() {

@@ -1,5 +1,5 @@
-import Center from '@/components/common/center';
-import Spinner from '@/components/common/spinner';
+import Center from '@/components/center';
+import Spinner from '@/components/spinner';
 
 export default function DocumentsLoading() {
   return (

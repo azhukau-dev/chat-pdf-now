@@ -3,7 +3,7 @@
 import { useClerk } from '@clerk/nextjs';
 import { LogOut } from 'lucide-react';
 
-import { DropdownMenuItem } from '../ui/dropdown-menu';
+import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
 
 export default function SignOutMenuItem() {
   const { signOut } = useClerk();

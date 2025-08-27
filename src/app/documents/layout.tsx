@@ -1,7 +1,6 @@
 import { Bot, FileText, User } from 'lucide-react';
 import Link from 'next/link';
 
-import SignOutMenuItem from '@/components/layout/sign-out-menu-item';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import SignOutMenuItem from '@/features/layout/sign-out-menu-item';
 
 export default function DocumentsLayout({
   children,

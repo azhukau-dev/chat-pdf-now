@@ -5,11 +5,8 @@ import { Trash } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 
-import { api } from '@/convex/_generated/api';
-import { Doc, Id } from '@/convex/_generated/dataModel';
-
-import CreationDateDisplay from '../common/creation-date-display';
-import FileSizeDisplay from '../common/file-size-display';
+import CreationDateDisplay from '@/components/creation-date-display';
+import FileSizeDisplay from '@/components/file-size-display';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -20,9 +17,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '../ui/alert-dialog';
-import { Button } from '../ui/button';
-import { TableCell, TableRow } from '../ui/table';
+} from '@/components/ui/alert-dialog';
+import { Button } from '@/components/ui/button';
+import { TableCell, TableRow } from '@/components/ui/table';
+import { api } from '@/convex/_generated/api';
+import { Doc, Id } from '@/convex/_generated/dataModel';
 
 export interface DocumentListItemProps {
   document: Doc<'documents'>;

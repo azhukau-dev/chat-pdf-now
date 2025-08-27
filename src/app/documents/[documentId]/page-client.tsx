@@ -3,16 +3,16 @@
 import { Preloaded, usePreloadedQuery } from 'convex/react';
 import dynamic from 'next/dynamic';
 
-import DocumentChat from '@/components/chat/document-chat';
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
 import { api } from '@/convex/_generated/api';
+import DocumentChat from '@/features/chat/document-chat';
 
 const DocumentPreview = dynamic(
-  () => import('@/components/chat/document-preview'),
+  () => import('@/features/chat/document-preview'),
   {
     ssr: false,
   },

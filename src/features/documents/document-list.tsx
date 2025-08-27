@@ -1,6 +1,6 @@
+import { Table, TableBody } from '@/components/ui/table';
 import { Doc } from '@/convex/_generated/dataModel';
 
-import { Table, TableBody } from '../ui/table';
 import DocumentListItem from './document-list-item';
 
 export interface DocumentListProps {
