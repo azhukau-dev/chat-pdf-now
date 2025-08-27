@@ -23,6 +23,7 @@ import {
   PromptInputTextarea,
   PromptInputToolbar,
 } from '../ai-elements/prompt-input';
+import { Response } from '../ai-elements/response';
 
 export interface DocumentChatProps {
   document: Doc<'documents'>;
@@ -57,7 +58,9 @@ export default function DocumentChat(props: DocumentChatProps) {
         <ConversationContent>
           {toUIMessages(messages ?? []).map((message) => (
             <Message key={message.id} from={message.role}>
-              <MessageContent>{message.text}</MessageContent>
+              <MessageContent>
+                <Response>{message.text}</Response>
+              </MessageContent>
             </Message>
           ))}
         </ConversationContent>

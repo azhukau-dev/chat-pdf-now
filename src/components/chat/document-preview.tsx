@@ -44,6 +44,7 @@ export default function DocumentPreview({ fileUrl }: { fileUrl: string }) {
         options={options}
         onLoadSuccess={onDocumentLoadSuccess}
         loading={<div>Loading...</div>}
+        className="space-y-2"
       >
         {Array.from(new Array(numPages), (_el, index) => (
           <Page
