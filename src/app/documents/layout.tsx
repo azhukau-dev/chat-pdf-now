@@ -9,6 +9,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  NavigationMenu,
+  NavigationMenuLink,
+} from '@/components/ui/navigation-menu';
 import SignOutMenuItem from '@/features/layout/sign-out-menu-item';
 
 export default function DocumentsLayout({
@@ -25,7 +29,15 @@ export default function DocumentsLayout({
           </Link>
         </div>
 
-        <div className="ml-auto flex items-center">
+        <div className="mx-auto w-full max-w-5xl px-4">
+          <NavigationMenu>
+            <NavigationMenuLink asChild>
+              <Link href="/documents">All Documents</Link>
+            </NavigationMenuLink>
+          </NavigationMenu>
+        </div>
+
+        <div className="flex items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="cursor-pointer">
