@@ -5,7 +5,17 @@ import { toast } from 'sonner';
 import { api } from '@/convex/_generated/api';
 import { extractTextFromPdf } from '@/lib/pdf';
 
-export default function useDocumentUpload() {
+export interface UseDocumentUploadProps {
+  showToast?: boolean;
+  onUploadSuccess?: () => void;
+  onUploadError?: (error: unknown) => void;
+}
+
+export default function useDocumentUpload({
+  showToast = true,
+  onUploadSuccess,
+  onUploadError,
+}: UseDocumentUploadProps = {}) {
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,10 +45,16 @@ export default function useDocumentUpload() {
         size: file.size,
         text,
       });
-      toast.success('Document uploaded successfully');
+      if (showToast) {
+        toast.success('Document uploaded successfully');
+      }
+      onUploadSuccess?.();
     } catch (error) {
       setError('Failed to upload document');
-      toast.error('Failed to upload document');
+      if (showToast) {
+        toast.error('Failed to upload document');
+      }
+      onUploadError?.(error);
     } finally {
       setIsUploading(false);
     }

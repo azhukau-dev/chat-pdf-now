@@ -12,8 +12,18 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
-export default function DocumentUploadButton() {
-  const { upload, isUploading } = useDocumentUpload();
+export interface DocumentUploadButtonProps {
+  showToast?: boolean;
+  onUploadSuccess?: () => void;
+  onUploadError?: (error: unknown) => void;
+}
+
+export default function DocumentUploadButton(props: DocumentUploadButtonProps) {
+  const { upload, isUploading } = useDocumentUpload({
+    showToast: props.showToast,
+    onUploadSuccess: props.onUploadSuccess,
+    onUploadError: props.onUploadError,
+  });
 
   const handleUpload = useCallback(function handleUpload() {
     const fileInput = document.createElement('input');

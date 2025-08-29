@@ -2,6 +2,8 @@
 
 import { Preloaded, usePreloadedQuery } from 'convex/react';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import Confetti from 'react-confetti';
 
 import { api } from '@/convex/_generated/api';
 
@@ -17,28 +19,43 @@ export interface DocumentListViewProps {
 }
 
 export default function DocumentListView(props: DocumentListViewProps) {
+  const [isConfettiVisible, setIsConfettiVisible] = useState(false);
+
   const documents = usePreloadedQuery(props.preloadedDocuments);
 
   const hasDocuments = documents.length > 0;
 
   return (
-    <div className="flex flex-col space-y-8">
-      <div className="flex items-center space-x-4">
-        <div>
-          <h2 className="text-3xl font-semibold">Chat Documents</h2>
-        </div>
-        {hasDocuments && (
-          <div className="ml-auto">
-            <DocumentUploadButton />
+    <>
+      {isConfettiVisible && (
+        <Confetti
+          recycle={false}
+          width={window.innerWidth}
+          height={window.innerHeight}
+          numberOfPieces={500}
+          onConfettiComplete={() => setIsConfettiVisible(false)}
+        />
+      )}
+      <div className="flex flex-col space-y-8">
+        <div className="flex items-center space-x-4">
+          <div>
+            <h2 className="text-3xl font-semibold">Chat Documents</h2>
           </div>
+          {hasDocuments && (
+            <div className="ml-auto">
+              <DocumentUploadButton />
+            </div>
+          )}
+        </div>
+
+        {hasDocuments ? (
+          <DocumentList documents={documents} />
+        ) : (
+          <DocumentListEmpty
+            onUploadSuccess={() => setIsConfettiVisible(true)}
+          />
         )}
       </div>
-
-      {hasDocuments ? (
-        <DocumentList documents={documents} />
-      ) : (
-        <DocumentListEmpty />
-      )}
-    </div>
+    </>
   );
 }

@@ -7,7 +7,12 @@ const DocumentUploadButton = dynamic(() => import('./document-upload-button'), {
   ssr: false,
 });
 
-export default function DocumentListEmpty() {
+export interface DocumentListEmptyProps {
+  onUploadSuccess?: () => void;
+  onUploadError?: (error: unknown) => void;
+}
+
+export default function DocumentListEmpty(props: DocumentListEmptyProps) {
   return (
     <div className="flex flex-col items-center justify-center space-y-8 py-16">
       <div className="flex flex-col items-center justify-center space-y-2">
@@ -18,7 +23,11 @@ export default function DocumentListEmpty() {
         </p>
       </div>
       <div className="mx-auto">
-        <DocumentUploadButton />
+        <DocumentUploadButton
+          showToast={false}
+          onUploadSuccess={props.onUploadSuccess}
+          onUploadError={props.onUploadError}
+        />
       </div>
     </div>
   );
